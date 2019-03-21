@@ -1,4 +1,4 @@
-# Database based cache to dope the result retrieval from reaction rules
+# Database based cache to dope the data retrieval from reaction rules
 
 Thomas Duigou (thomas.duigou@inra.fr), INRA, 2019
 
@@ -47,4 +47,4 @@ pip install -e .
  
 ## Q&A
 
-- Where are stored the db files ? In a named docker data volume `mongo-data`.
+- Where are stored the db files ? In a named docker data volume, see `service/run/*yml` file.
