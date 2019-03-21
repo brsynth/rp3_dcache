@@ -1,8 +1,8 @@
 db:
   host: localhost
   port: 27017
-  username: root
-  password: example
+  username: captain
+  password: OXnrl7aeHw6k
   database: dcache
   collection: results
   replace: False

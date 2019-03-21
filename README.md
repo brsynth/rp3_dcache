@@ -11,9 +11,9 @@ Notice : at reading time, some of following information might be deprecated!
 
 ## Needed components
 
-- docker
-- docker-compose
-- conda
+- docker : https://docs.docker.com/install/
+- docker-compose : https://docs.docker.com/compose/install/
+- conda : https://docs.conda.io/projects/conda/en/latest/user-guide/install/
 
 ## Setting up python environment
 
@@ -42,7 +42,7 @@ pip install -e .
 ## How to run the database in the background
  
  ```
- docker-compose -f service/run/mongo.yml
+ docker-compose -f service/run/mongo.yml up  # Or 'up -d' to start in the background
  ```
  
 ## Q&A
