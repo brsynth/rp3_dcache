@@ -12,6 +12,7 @@ def test_insert():
     mgr = Manager()
     mgr.connect()
     mgr.insert({"_id": "lala"})
+    mgr.insert({"_id": "lala"})  # Should still work the second time
 
 def test_find():
     mgr = Manager()
