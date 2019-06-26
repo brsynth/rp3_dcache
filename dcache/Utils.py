@@ -6,13 +6,14 @@ import os
 import yaml
 from rdkit.Chem import MolFromSmiles, MolFromInchi, AddHs
 
+
 def default_config():
     """
     Return the default configuration as a dictionnary.
     """
     path = os.path.join(os.path.dirname(__file__), "conf", "default.yaml")
     with open(path, 'r') as fh:
-        cfg = yaml.load(fh)
+        cfg = yaml.load(fh, Loader=yaml.Loader)
     return cfg
 
 
