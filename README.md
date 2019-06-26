@@ -29,7 +29,7 @@ conda install --channel rdkit rdkit=2018.09.1.0
 conda install --channel conda-forge pytest
 conda install pytest
 conda install pymongo
-conda install yaml
+conda install pyyaml
 ```
 
 ## Install as a packages
