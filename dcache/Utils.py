@@ -36,7 +36,7 @@ def as_document(rule_id, substrate_id, list_list_inchikeys=[], list_list_inchis=
     :param  list_list_inchikeys:    list of list of InchiKeys
     :param  list_list_inchis:       list of list of Inchis
     :param  list_list_smiles:       list of list of SMILES
-    :param  list_stoechiometry:     list stoechiometry coefficients
+    :param  list_stoechiometry:     list of dict of stoechiometric coefficients
     :return document: ready-to-be-inserted document
     """
     return {
