@@ -3,17 +3,22 @@ from rdkit.Chem import Mol
 from hashlib import sha1
 from dcache.Utils import default_config, make_document_id, as_document, rdmols_from_document
 
+
 def test_config_1():    
     cfg = default_config()
     assert cfg['db']
+
 
 def test_make_document_id():
     doc_id = make_document_id("rid", "sid")
     assert isinstance(doc_id, str)
 
+
 def test_as_document():
-    document = as_document(rule_id="rid", substrate_id="sid", list_list_inchikeys=[], list_list_inchis=[], list_list_smiles=[])
-    assert sha1(str(document).encode()).hexdigest() == "2c0453f1e5586f66b8aa6d6d079030e00f0c8941"
+    document = as_document(rule_id="rid", substrate_id="sid", list_list_inchikeys=[], list_list_inchis=[],
+                           list_list_smiles=[], list_stoechiometry=[])
+    assert sha1(str(document).encode()).hexdigest() == '893f1a213b6d60ea4d2b796c55fbfe3475bdeb8d'
+
 
 def test_rdmols_from_document():
     document = {
@@ -34,9 +39,14 @@ def test_rdmols_from_document():
             [
                 "[H]C(=C([H])C([H])=C(C([H])=C([H])C([H])=C(C([H])=C([H])C1=C(C([H])([H])[H])C([H])([H])C([H])([H])C([H])([H])C1(C([H])([H])[H])C([H])([H])[H])C([H])([H])[H])C([H])([H])[H])C([H])=C(C([H])=C([H])C([H])=C(C([H])=C([H])C([H])=C(C([H])([H])[H])C([H])([H])C([H])([H])C([H])=C(C([H])([H])[H])C([H])([H])[H])C([H])([H])[H])C([H])([H])[H]"
             ]
+        ],
+        "list_stoechiometry": [
+            {
+                "HRQKOYFGHJYEFS-UHFFFAOYSA-N": 1
+            }
         ]
     }
-    rdmols = rdmols_from_document(document)
+    rdmols, coefficients = rdmols_from_document(document)
     assert rdmols is not None
     assert len(rdmols) == 1
     assert len(rdmols[0]) == 1
