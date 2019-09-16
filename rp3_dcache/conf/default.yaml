@@ -3,6 +3,6 @@ db:
   port: 27017
   username: captain
   password: OXnrl7aeHw6k
-  database: dcache
+  database: rp3_dcache
   collection: results
   replace: False
