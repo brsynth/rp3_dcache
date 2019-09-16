@@ -1,7 +1,7 @@
 import pytest
 from rdkit.Chem import Mol
 from hashlib import sha1
-from dcache.Utils import default_config, make_document_id, as_document, rdmols_from_document
+from rp3_dcache.Utils import default_config, make_document_id, as_document, rdmols_from_document
 
 
 def test_config_1():    

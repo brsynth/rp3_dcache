@@ -1,5 +1,5 @@
 import pytest
-from dcache.Manager import Manager
+from rp3_dcache.Manager import Manager
 
 
 def test_init():
