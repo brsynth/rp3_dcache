@@ -25,7 +25,7 @@ def make_document_id(rule_id, substrate_id):
 
 
 def as_document(rule_id, substrate_id, list_list_inchikeys=[], list_list_inchis=[], list_list_smiles=[],
-                list_stoechiometry = []):
+                list_stoechiometry=[]):
     """
     Format data to be inserted into the cache DB.
 
@@ -36,6 +36,7 @@ def as_document(rule_id, substrate_id, list_list_inchikeys=[], list_list_inchis=
     :param  list_list_inchikeys:    list of list of InchiKeys
     :param  list_list_inchis:       list of list of Inchis
     :param  list_list_smiles:       list of list of SMILES
+    :param  list_stoechiometry:     list stoechiometry coefficients
     :return document: ready-to-be-inserted document
     """
     return {
@@ -73,13 +74,13 @@ def rdmols_from_document(document, build_from="inchi", add_hs=True):
                 list_rdmols.append(rd_mol)
             list_list_rdmols.append(list_rdmols)
     elif build_from == 'smiles':
-        for list_inchis in document['list_list_smiles']:
+        for list_smiles in document['list_list_smiles']:
             list_rdmols = list()
-            for smiles in list_inchis:
+            for smiles in list_smiles:
                 rd_mol = MolFromSmiles(smiles, sanitize=True)
                 if add_hs:
                     rd_mol = AddHs(rd_mol)
-                list_rdmols.append(list_rdmols)
+                list_rdmols.append(rd_mol)
             list_list_rdmols.append(list_rdmols)
     else:
         raise NotImplementedError()

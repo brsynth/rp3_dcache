@@ -7,6 +7,7 @@ from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 from .Utils import default_config
 
+
 class Manager(object):
     """
     Cache manager: handle connection and queries to the cache DB
@@ -71,4 +72,3 @@ class Manager(object):
         :returns   document: .. .. .
         """
         return self.collection.find_one({"_id": document_id})
-            
