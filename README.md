@@ -1,7 +1,7 @@
-# Database based cache to dope data retrieval for RetroPath 3
+# Database based cache to dope data retrieval for RetroPath 3.0
 
 Here it is a two components cache system to dope the result retrieval from reaction rules
-results, to be used with RetroPath 3. The 2 components are:
+results, to be used with RetroPath 3.0. The 2 components are:
 
 - A python module to be imported in RetroPath 3.0 
 - A Mongo database, which should be started independently (see "How to run the database in
