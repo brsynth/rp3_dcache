@@ -1,9 +1,9 @@
-# Database based cache to dope data retrieval for RetroPath 3.0
+# Database based cache to dope data retrieval for RetroPath RL
 
 Here it is a two components cache system to dope the result retrieval from reaction rules
-results, to be used with RetroPath 3.0. The 2 components are:
+results, to be used with RetroPath RL. The 2 components are:
 
-- A python module to be imported in RetroPath 3.0 
+- A python module to be imported in RetroPath RL 
 - A Mongo database, which should be started independently (see "How to run the database in
 the background")
 
@@ -52,7 +52,7 @@ docker-compose -f service/run/mongo.yml up  # Or 'up -d' to start in the backgro
 
 ## How to cite
 
-Please cite: _to be completed_
+Please cite: Koch M, Duigou T, Faulon JL. Reinforcement Learning for Bioretrosynthesis. ACS Synthetic Biology (2020). DOI: https://doi.org/10.1021/acssynbio.9b00447
 
 
 ## License
