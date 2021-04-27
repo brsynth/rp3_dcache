@@ -3,6 +3,7 @@ Cache manager: handle connection and queries to the cache DB
 """
 
 import logging
+import urllib.parse
 from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 from .Utils import default_config
@@ -28,8 +29,10 @@ class Manager(object):
         config = default_config()['db']
         self.host = config['host'] if host is None else host
         self.port = config['port'] if port is None else port
-        self.username = config['username'] if username is None else username
-        self.password = config['password'] if password is None else password
+        _ = config['username'] if username is None else username
+        self.username = urllib.parse.quote_plus(_)
+        _ = config['password'] if password is None else password
+        self.password = urllib.parse.quote_plus(_)
         self.db_name = config['database'] if database is None else database
         self.cl_name = config['collection'] if collection is None else collection
         self.replace = config['replace'] if replace is None else replace
@@ -43,7 +46,9 @@ class Manager(object):
         """
         Set up the connection with the Mongo DB collection
         """
-        self.client = MongoClient(host=self.host, port=self.port, username=self.username, password=self.password)
+        # self.client = MongoClient(host=self.host, port=self.port, username=self.username, password=self.password)
+        self.client = MongoClient(host=f'mongodb://{self.username}:{self.password}@{self.host}:{self.port}')
+        
         self.database = self.client[self.db_name] 
         self.collection = self.database[self.cl_name]
         
