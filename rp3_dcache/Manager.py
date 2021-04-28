@@ -46,7 +46,6 @@ class Manager(object):
         """
         Set up the connection with the Mongo DB collection
         """
-        # self.client = MongoClient(host=self.host, port=self.port, username=self.username, password=self.password)
         self.client = MongoClient(host=f'mongodb://{self.username}:{self.password}@{self.host}:{self.port}')
         
         self.database = self.client[self.db_name] 
